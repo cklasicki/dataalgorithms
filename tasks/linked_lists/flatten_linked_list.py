@@ -68,7 +68,7 @@ class LinkedList:
         return length
 
 
-def merge(list1: LinkedList, list2: LinkedList):
+def merge(list1, list2):
     # TODO: Implement this function so that it merges the two linked lists in a single, sorted linked list.
     '''
     The arguments list1, list2 must be of type LinkedList.
@@ -82,16 +82,22 @@ def merge(list1: LinkedList, list2: LinkedList):
     if list2 is None:
         return list1
 
-    list1_elem = list1.head
-    list2_elem = list2.head
+    list1_elt = list1.head
+    list2_elt = list2.head
 
-    while list1_elem is not None or list2_elem is not None:
-        if list1_elem is None or list1_elem.value > list2_elem.value:
-            merged.append(list2_elem)
-            list2_elem = list2_elem.next
-        elif list2_elem is None or list1_elem.value <= list2_elem.value:
-            merged.append(list1_elem)
-            list1_elem = list1_elem.next
+    while list1_elt is not None or list2_elt is not None:
+        if list1_elt is None:
+            merged.append(list2_elt)
+            list2_elt = list2_elt.next
+        elif list2_elt is None:
+            merged.append(list1_elt)
+            list1_elt = list1_elt.next
+        elif list1_elt.value <= list2_elt.value:
+            merged.append(list1_elt)
+            list1_elt = list1_elt.next
+        else:
+            merged.append(list2_elt)
+            list2_elt = list2_elt.next
 
     return merged
 
@@ -101,13 +107,13 @@ class NestedLinkedList(LinkedList):
     def flatten(self):
         # TODO: Implement this method to flatten the linked list in ascending sorted order.
 
-        main_current = self.head
-        while main_current is not None:
-            print(main_current)
-            mergedList = merge(main_current, main_current.value)
-            main_current = main_current.next
-        
-        return self
+        return self._flatten(self.head)
+
+    def _flatten(self, node):
+        if node.next is None:
+            return merge(node.value, None)
+
+        return merge(node.value, self._flatten(node.next))
 
 
 # Custom Tests 
@@ -134,8 +140,7 @@ second_linked_list = LinkedList(Node(2))
 second_linked_list.append(4)
 
 ''' Create a NESTED LinkedList, where each node will be a simple LinkedList in itself'''
-nested_linked_list = NestedLinkedList(Node(
-    linked_list))  # <-- Notice that we are passing a Node made up of a simple LinkedList object
+nested_linked_list = NestedLinkedList(Node(linked_list))  # <-- Notice that we are passing a Node made up of a simple LinkedList object
 # <-- Notice that we are passing a LinkedList object in the append() function here
 nested_linked_list.append(second_linked_list)
 
