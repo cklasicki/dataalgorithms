@@ -1,12 +1,7 @@
-# Helper Code
 class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
-
-    def __str__(self) -> str:
-        return value
-
 
 class LinkedList:
     def __init__(self):
@@ -31,7 +26,6 @@ class LinkedList:
 
     def __repr__(self):
         return str([v for v in self])
-
 
 def reverse(linked_list: LinkedList):
     """
