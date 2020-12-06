@@ -1,0 +1,24 @@
+Task0
+
+    Both cases (find first and find last) are O(1). It does not matter how many items we have in the array. We access only one specific item and that's why the timce complexity is constant.
+
+Task1
+
+    I am iterating over the full set of calls and texts. Therefere the time complexity is O(n)
+
+Task2
+
+    One iteration over calls object to add all numbers and their duration (aggregate in an addtional dictionary object number -> duration). 
+    Then another iteration over this newly created dict structure to find max.
+    Time complexity O(n), space complexity O(n) the more numbers, the more space taken.
+
+Task3
+
+    PartA and PartB both have time complexity O(n). Firstly, the new list with only calls from Bangalore is created. 
+    Next step, there is another iteration over this newly created list to extract prefixes (fixed and mobile).
+
+Task4
+
+    I am building a new list that has all answering numbers from calls and source, destination from texts. 
+    Then I'm building a new list with all numbers that are outgoing but don't exist in the previously built list.
+    Time complexity is O(ct), where c => number of calls, t => number of texts
