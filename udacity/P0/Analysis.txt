@@ -4,7 +4,9 @@ Task0
 
 Task1
 
-    I am iterating over the full set of calls and texts. Therefere the time complexity is O(n)
+    I am iterating over the full set of calls and texts. 
+    As a data structure in which data is stored, I used set which has O(1) time complexity. 
+    Therefere the time complexity is O(n), because there is one for loop that depends on the number of items in the provided input
 
 Task2
 
@@ -14,11 +16,15 @@ Task2
 
 Task3
 
-    PartA and PartB both have time complexity O(n). Firstly, the new list with only calls from Bangalore is created. 
-    Next step, there is another iteration over this newly created list to extract prefixes (fixed and mobile).
+    PartA:
+        Creation of additional data structure that holds information about bangalor numbers is O(n). 
+        The chosed data strucutre is set, because it has add method with O(1) time complexity.
+        Therefore the overall partA depends only on number of calls in input and the we have two iterations O(2n), which at the end gives us O(n).
+
+    PartB:
+        The same case as for partA is valid for partB. There is a list build with worst case n numbers that then is iterated, but not nested.
+        Therefore the time complexity is O(n).
 
 Task4
 
-    I am building a new list that has all answering numbers from calls and source, destination from texts. 
-    Then I'm building a new list with all numbers that are outgoing but don't exist in the previously built list.
-    Time complexity is O(ct), where c => number of calls, t => number of texts
+    Time complexity is O(2tc), where c is number of calls and t is number of texts.

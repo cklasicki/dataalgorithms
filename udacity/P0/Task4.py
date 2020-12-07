@@ -27,23 +27,19 @@ The list of numbers should be print out one per line in lexicographic order with
 
 def task4(calls, texts):
 
-    telemarketers = []
-
-    all_outgoing_numbers = []
+    telemarketers = set()
+    all_outgoing_numbers = set()
 
     for item in calls:
-        if not item[1] in all_outgoing_numbers:
-            all_outgoing_numbers.append(item[1])
+        all_outgoing_numbers.add(item[1])
 
     for item in texts:
-        if not item[0] in all_outgoing_numbers:
-            all_outgoing_numbers.append(item[0])
-        if not item[1] in all_outgoing_numbers:
-            all_outgoing_numbers.append(item[1])
+        all_outgoing_numbers.add(item[0])
+        all_outgoing_numbers.add(item[1])
 
     for number in calls:
-        if not number[0] in all_outgoing_numbers and not number[0] in telemarketers:
-            telemarketers.append(number[0])
+        if not number[0] in all_outgoing_numbers:
+            telemarketers.add(number[0])
 
     telemarketers = sorted(telemarketers)
 

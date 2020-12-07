@@ -21,18 +21,15 @@ Print a message:
 
 def add_numbers_from_set(list, unique_numbers_list):
 
-    for item in list:
+    for item in list: #O(n)
         incoming, answering, *data = item
-
-        if not incoming in unique_numbers_list:
-            unique_numbers_list.append(incoming)
-        if not answering in unique_numbers_list:
-            unique_numbers_list.append(answering)
+        unique_numbers_list.add(incoming) #O(1)
+        unique_numbers_list.add(answering) #O(1)
 
 # Time O(n), Space O(n)
 def unique_numbers(calls, texts):
 
-    unique_numbers_list = []
+    unique_numbers_list = set()
 
     add_numbers_from_set(calls, unique_numbers_list)
     add_numbers_from_set(texts, unique_numbers_list)

@@ -27,13 +27,9 @@ def add_number_duration(number, duration, list):
         list[number] = duration
 
 def get_the_longest_number_duration(numbers_list):
-    max_duration = 0
-    number = ""
-    for item in numbers_list:
-        if numbers_list[item] > max_duration:
-            number = item
-            max_duration = numbers_list[item]
-    return number, max_duration
+
+    number = max(numbers_list, key = lambda k: numbers_list[k])
+    return number, numbers_list[number] 
 
 def longest_call(calls):
 

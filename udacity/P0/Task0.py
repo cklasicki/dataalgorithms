@@ -30,7 +30,7 @@ def find_first_record(texts):
 #time O(1)
 def last_record_calls(calls):
 
-    incoming, answering, date, duration =  calls[len(calls)-1]
+    incoming, answering, date, duration =  calls[-1]
 
     print('Last record of calls, {} calls {} at time {}, lasting {} seconds'.format(incoming, answering, date, duration))
 

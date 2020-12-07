@@ -48,7 +48,7 @@ The percentage should have 2 decimal digits
 # Filter calls with only incoming calls from Bangalore prefix (080)
 
 def extract_area_code(number: str):
-    if number.startswith('('):  # area code
+    if number.startswith('(0'):  # area code
         end_index = number.find(')')
         return number[:end_index+1]
     elif number.startswith(('7', '8', '9')):  # mobile number
@@ -75,12 +75,11 @@ def find_all_bangalore_numbers(calls):
 
 def part_a(calls):
 
-    prefix_list = []
-    bangalore_numbers = find_all_bangalore_numbers(calls)
+    prefix_list = set()
+    bangalore_numbers = find_all_bangalore_numbers(calls) #O(n)
     for call in bangalore_numbers: # Time: O(n) 
         n = extract_area_code(call[1])
-        if not n in prefix_list:
-            prefix_list.append(n)
+        prefix_list.add(n) #O(1)
 
     prefix_list = sorted(prefix_list)
 
@@ -94,9 +93,9 @@ def part_a(calls):
 def part_b(calls):
 
     ratio = 0.0
-    bangalore_numbers = find_all_bangalore_numbers(calls)
+    bangalore_numbers = find_all_bangalore_numbers(calls) #O(n)
     bangalore_calls_only = 0
-    for call in bangalore_numbers:
+    for call in bangalore_numbers: #O(n)
         if bangalore_prefix(call[1]):
             bangalore_calls_only += 1
 
