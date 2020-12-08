@@ -22,8 +22,8 @@ Task3
         At the end the output is sorted with the O(nlogn) time complexity. Therefore the overall time complexity would be O(nlogn).
 
     PartB:
-        The same case as for partA is valid for partB. There is a list build with worst case n numbers that then is iterated, but not nested.
-        At the end the output is sorted with the O(nlogn) time complexity. Therefore the overall time complexity would be O(nlogn).
+        There is a list build with worst case n numbers that then is iterated, but not nested.
+        Therefore the time complexity is O(n).
 
 Task4
 
