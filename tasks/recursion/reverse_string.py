@@ -4,8 +4,7 @@ def reverse_string(input):
         return ""
     else:
         first_letter = input[0]
-        sliced = slice(1, None)
-        remaining = input[sliced]
+        remaining = input[1:]
 
         reversed_string = reverse_string(remaining)
 
